@@ -17,8 +17,6 @@
         overflow: hidden;
         position: relative;
       }
-
-      /* Bintang-bintang kecil */
       .star {
         position: absolute;
         width: 6px;
@@ -39,8 +37,6 @@
           transform: scale(1.5);
         }
       }
-
-      /* ENVELOPE ANIMATION */
       .envelope-wrapper {
         width: 330px;
         margin: 30px auto;
@@ -65,8 +61,6 @@
         overflow: hidden;
         display: inline-block;
       }
-
-      /* FLAP ATAS */
       .flap {
         width: 100%;
         height: 120px;
@@ -80,8 +74,6 @@
         transition: transform 1s ease;
         z-index: 10;
       }
-
-      /* isi pesan muncul setelah amplop terbuka, teks di tengah */
       .message-box {
         background: rgb(255, 177, 177);
         padding: 25px;
@@ -99,8 +91,6 @@
         align-items: center;
         text-align: center;
       }
-
-      /* Confetti */
       .confetti {
         position: fixed;
         width: 10px;
@@ -121,15 +111,12 @@
     </style>
 
     <script>
-      // PASSWORD
       let pass = prompt("Masukkan password untuk membuka halaman ini:");
 
-      if (pass !== "qotrunnada") {
+      if (pass !== "Qotrunnada") {
         alert("Password salah! Kamu tidak boleh masuk 😿");
         window.location.href = "index.html";
       }
-
-      // Bintang acak
       function createStars(num) {
         for (let i = 0; i < num; i++) {
           let star = document.createElement("div");
@@ -140,8 +127,6 @@
           document.body.appendChild(star);
         }
       }
-
-      // Confetti
       function launchConfetti() {
         const colors = ["#ff4fa1", "#ff9fd6", "#ffd1e8", "#fff5fb", "#ffc7ee"];
         for (let i = 0; i < 60; i++) {
@@ -156,10 +141,8 @@
           setTimeout(() => conf.remove(), 5000);
         }
       }
-
-      // Amplop terbuka & teks muncul
       window.onload = () => {
-        createStars(30); // buat 30 bintang
+        createStars(40);
         const flap = document.querySelector(".flap");
         const letter = document.querySelector(".message-box");
 
@@ -176,14 +159,14 @@
     </script>
   </head>
   <body>
-    <h1>🍬 Kontak 🍬</h1>
-    <p>Kamu bisa menghubungiku kapan saja! 💌✨</p>
+    <h1>🍬 Hai Adifa!! 🍬</h1>
+    <p> so, you can call me everytime you want! 💌✨</p>
 
     <div class="envelope-wrapper">
       <div class="envelope">
         <div class="flap"></div>
         <div class="message-box">
-          <h3 style="margin-top: 0">📨 Halo Mba Cindy!!!</h3>
+          <h3 style="margin-top: 0">📨 Halo lagi!!!</h3>
           <p>
             Makasih ya sudah mampir ke halaman ini 💖<br />
             Jangan ragu buat chat kapan pun!<br />
@@ -200,3 +183,4 @@
     <a href="index.html">⬅ Kembali ke Home</a>
   </body>
 </html>
+
