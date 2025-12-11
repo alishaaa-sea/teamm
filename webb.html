@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>MESSAGE FOR P2 TEAM!</title>
+<style>
+    body {
+        background: #ffe6fa url('glitter.gif') no-repeat fixed center;
+        background-size: cover;
+        font-family: "times new roman", Georgia, 'Times New Roman', Times, serif;
+        text-align: center;
+        padding: 50px;
+        opacity: 0;
+        animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    h1 {
+        color: hsl(0, 88%, 60%);
+        font-size: 50px;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        margin: auto;
+        width: 300px;
+        border-radius: 25px;
+        box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+    }
+
+    button, a.button {
+        background: #f57575;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 15px;
+        display: block;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        text-decoration: none;
+    }
+
+    button:hover, a.button:hover {
+        background: #ff7d7d;
+        transform: scale(1.05);
+        transition: 0.2s;
+    }
+
+    .section {
+        display: none;
+        background: white;
+        padding: 30px;
+        margin-top: 30px;
+        border-radius: 25px;
+        width: 80%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+    }
+
+    /* RESPONSIVE UNTUK HP */
+    @media (max-width: 250px) {
+        body {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        .card {
+            width: 90%;
+            padding: 20px;
+        }
+        button, a.button {
+            width: 80%;
+            font-size: 14px;
+            padding: 10px 15px;
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        top: -20px;
+        background-color: #e61717;
+        opacity: 1.9;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(120vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
+
+<script>
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(sec => {
+            sec.style.display = 'none';
+        });
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
+</head>
+<body>
+
+<h1>Halo P2 Member! </h1>
+<img src="jay.jpg" width="300" style="border-radius:20px; margin-bottom:20px;">
+
+<div class="card">
+    <p> HAAAAAAAAIIIII 💖</p>
+    <hr style="margin:25px 0; opacity:0.3; font-family: times new roman;">
+
+    <!-- BUTTON PINDAH HALAMAN -->
+    <a href="all.html" class="button">⭐For All P2 Member⭐</a>
+    <a href="mbacindy.html" class="button">🎀Mba Cindy🎀</a>
+    <a href="mbatary.html" class="button">🎀Mba Tary🎀</a>
+    <a href="mbaela.html" class="button">🎀Mba Ela🎀</a>
+    <a href="masgabryel.html" class="button">🍬Mas Gabryel🍬</a>
+    <a href="masdesca.html" class="button">🍬Mas Desca🍬</a>
+    <a href="masalif.html" class="button">🍬Mas alif🍬</a>
+    <a href="atul.html" class="button">🎀Atul🎀</a>
+    <a href="adifa.html" class="button">🎀Adifa🎀</a>
+    <a href="ishma.html" class="button">🎀Ishma🎀</a>
+    <a href="pipin.html" class="button">🎀Pipin🎀</a>
+    <a href="yeremia.html" class="button">🍬Yeremia🍬</a>
+    <a href="galeri.html" class="button">⭐Galery P2⭐</a>
+    <hr style="margin:25px 0; opacity:0.3;">
+</div>
+
+<audio controls autoplay loop style="margin-top:30px;">
+    <source src="lagu.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung pemutar audio.
+</audio>
+<script>
+
+function launchConfetti() {
+    const colors = ["#ff4fa1", "#ff9fd6", "#ffd1e8", "#fff5fb", "#ffc7ee"];
+
+    for (let i = 0; i < 100; i++) {
+        let conf = document.createElement("div");
+        conf.classList.add("confetti");
+
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        conf.style.animationDuration = (3 + Math.random() * 2) + "s";
+        conf.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+
+        document.body.appendChild(conf);
+
+        setTimeout(() => conf.remove(), 5000);
+    }
+}
+
+window.onload = launchConfetti;
+</script>
+</body>
+</html>

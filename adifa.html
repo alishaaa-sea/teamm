@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>halo adip</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        text-align:center; 
+        font-family:'Poppins', sans-serif; 
+        background:#fff0f9; 
+        padding:40px;
+        overflow:hidden;
+        position: relative;
+    }
+
+    /* Bintang-bintang kecil */
+    .star {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #fff9c4;
+        border-radius: 50%;
+        animation: twinkle 2s infinite alternate;
+        opacity: 0.8;
+    }
+
+    @keyframes twinkle {
+        from { opacity: 0.3; transform: scale(1); }
+        to { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* ENVELOPE ANIMATION */
+    .envelope-wrapper {
+        width: 330px;
+        margin: 30px auto;
+        position: relative;
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity:0; }
+        to { opacity:1; }
+    }
+
+    .envelope {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow:0 14px 14px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    /* FLAP ATAS */
+    .flap {
+        width: 100%;
+        height: 120px;
+        background: #ffe6f5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        transform-origin: top;
+        transform: rotateX(0deg);
+        transition: transform 1s ease;
+        z-index: 10;
+    }
+
+    /* isi pesan muncul setelah amplop terbuka, teks di tengah */
+    .message-box {
+        background:rgb(255, 177, 177);
+        padding:25px;
+        font-size:14px;
+        line-height:1.6;
+        opacity:0;
+        transition: transform 1s ease, opacity 1s ease;
+        border-radius: 0 0 20px 20px;
+        position: relative;
+        z-index: 1;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Confetti */
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        top: -20px;
+        background-color: #ff4fa1;
+        opacity: 0.9;
+        animation: fall linear forwards;
+        border-radius: 50%;
+    }
+
+    @keyframes fall {
+        to { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+    }
+</style>
+
+<script>
+    // PASSWORD
+    let pass = prompt("Masukkan password untuk membuka halaman ini:");
+
+    if(pass !== "qotrunnada") {
+        alert("Password salah! Kamu tidak boleh masuk 😿");
+        window.location.href = "webb.html";
+    }
+
+    // Bintang acak
+    function createStars(num) {
+        for(let i=0;i<num;i++){
+            let star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = Math.random()*100 + 'vw';
+            star.style.top = Math.random()*100 + 'vh';
+            star.style.width = star.style.height = (3 + Math.random()*5) + 'px';
+            document.body.appendChild(star);
+        }
+    }
+
+    // Confetti
+    function launchConfetti() {
+        const colors = ["#ff4fa1", "#ff9fd6", "#ffd1e8", "#fff5fb", "#ffc7ee"];
+        for (let i = 0; i < 60; i++) {
+            let conf = document.createElement("div");
+            conf.classList.add("confetti");
+            conf.style.left = Math.random() * 100 + "vw";
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (3 + Math.random() * 2) + "s";
+            conf.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 5000);
+        }
+    }
+
+    // Amplop terbuka & teks muncul
+    window.onload = () => {
+        createStars(30); // buat 30 bintang
+        const flap = document.querySelector(".flap");
+        const letter = document.querySelector(".message-box");
+
+        setTimeout(() => {
+            flap.style.transform = "rotateX(-180deg)";
+        }, 500);
+
+        setTimeout(() => {
+            letter.style.transform = "translateY(0)";
+            letter.style.opacity = "1";
+            launchConfetti();
+        }, 1500);
+    };
+</script>
+
+</head>
+<body>
+
+<h1>🍬 Kontak 🍬</h1>
+<p>Kamu bisa menghubungiku kapan saja! 💌✨</p>
+
+<!-- Amplop animasi -->
+<div class="envelope-wrapper">
+    <div class="envelope">
+        <div class="flap"></div>
+        <div class="message-box">
+            <h3 style="margin-top:0;">📨 Halo Mba Cindy!!!</h3>
+            <p>
+                Makasih ya sudah mampir ke halaman ini 💖<br>
+                Jangan ragu buat chat kapan pun!<br>
+                Semoga harimu menyenangkan 🍓🌸<br>
+                Semoga keceriaan selalu menyertaimu dan halaman ini bisa membuatmu tersenyum 😊<br>
+                Jangan lupa bahagia dan selalu sehat ya! 💕<br>
+                Terus semangat dan tetap positif! 🌟
+            </p>
+        </div>
+    </div>
+</div>
+
+<a href="webb.html">⬅ Kembali ke Home</a>
+
+</body>
+</html>
